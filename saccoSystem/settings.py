@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-%5&wcvzud)1o#(r$2-*^ho23f9mhqb8icb@7+qi4-d@78%3b@b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['34.123.253.87','0.0.0.0']
+ALLOWED_HOSTS = []
 #ALLOWED_HOSTS = []
 
 
@@ -91,27 +91,29 @@ WSGI_APPLICATION = 'saccoSystem.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'zukuka',
+       'USER': 'brian',
+       'PASSWORD': '12345',
+       'HOST': 'localhost',
+        
+    }
+}
+
 #DATABASES = {
-   # 'default': {
-     #    'ENGINE': 'django.db.backends.postgresql',
+  # 'default': {
+   #    'ENGINE': 'django.db.backends.postgresql',
     #    'NAME': 'sacco',
-    #    'USER': 'postgres',
-    #    'PASSWORD': '12345',
-    #    'HOST': 'localhost',
+     #  'USER': 'postgres',
+      # 'PASSWORD': '12345',
+      # 'HOST': 'localhost',
         
     #}
 #}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'zukuka',
-        'USER': 'brian',
-        'PASSWORD': '12345',
-        'HOST': 'localhost',
-        
-    }
-}
+
 
 
 # Password validation
@@ -152,7 +154,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS=[os.path.join(BASE_DIR,'saccoSytem/static')]
+STATICFILES_DIRS=[os.path.join(BASE_DIR,'saccoSystem/static')]
 STATIC_ROOT=os.path.join(BASE_DIR,'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
