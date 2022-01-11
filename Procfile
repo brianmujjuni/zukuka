@@ -1,0 +1,1 @@
+web: gunicorn saccoSystem.wsgi --log-file -

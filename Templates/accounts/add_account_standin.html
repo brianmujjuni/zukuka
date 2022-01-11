@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Add Accounts Standin</h3>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Accounts Standin Form <small>AUTOMEX TECHNOLOGIES</small></h2>
+              
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Click to Add</button>
+
+              <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                      </button>
+                      <h4 class="modal-title" id="myModalLabel">Client Information</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal form-label-left input_mask" action="" method="POST">
+                            {% csrf_token %}
+                            
+                            {% include 'partials/_messages.html'%}
+                            
+                            <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                              <label for="profile id">Account No</label>
+                                <input type = "text" name="accountNo" class="accStand form-control has-feedback-left" id="inputSuccess2" value="{{values.accountNo}}">
+                                  
+                                <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+                            
+                            <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                              <label for="profile id">Account Name</label>
+                                <input type="text" name="accountName" class="accName form-control has-feedback-left" id="inputSuccess2" placeholder="Account Name" value="{{values.accountName}}">
+                                <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+            
+                            <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                              <label for="date">First Name</label>
+                              <input type="text"name="firstName" class="form-control has-feedback-left" id="inputSuccess2" placeholder="First Name" value="{{values.firstName}}">
+                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+            
+                            <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                              <label for="last name">Last Name</label>
+                              <input type="text" name="lastName" class="form-control" id="inputSuccess3" placeholder="Last Name" value="{{values.lastName}}">
+                              <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                            </div>
+            
+                            <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                              <label >DOB</label>
+                                <input type="date"name="dob" class="form-control" id="inputSuccess3" placeholder="Other Name" value="{{values.dob}}">
+                                <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                            </div>
+            
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                              <label for="gender">Gender</label>
+                              <select name="gender" class="form-control has-feedback-left" id="inputSuccess3" value="{{values.gender}}">
+                                <option>Male</option>
+                                <option>Female</option>
+                              </select>
+                              <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
+                              
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                              <label>Nin Number</label>
+                                <input type="text" name="ninNumber" class="form-control" id="inputSuccess3" placeholder="Nin Number" value="{{values.ninNumber}}">
+                                <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                              <label>Mobile No</label>
+                                <input type="tel"name="contact" class="form-control" id="inputSuccess3" placeholder="Mobile No" value="{{values.contact}}">
+                                <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                              <label for="other Name">Email Address</label>
+                                <input type="email"name="email" class="form-control" id="inputSuccess3" placeholder="Email Address" value="{{values.email}}">
+                                <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                            </div>
+            
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                              <div class="col-md-4 col-sm-5 col-xs-9 col-md-offset-8">
+                                <button type="button" class="btn btn-primary">Cancel</button>
+                                 <button class="btn btn-primary" type="reset">Reset</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                              </div>
+                            </div>
+            
+                          </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                      
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+      </div>
+      </div>
+        <div class="clearfix"></div>
+      
+{% endblock %}
+

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %} 
+        
+        <!-- page content -->
+        
+          <div class=""></div>
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Account Types</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" id ="searchField" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_title">
+                  
+                  <div class="clearfix"></div>
+                </div>
+                
+                  <div class="x_title">
+                    <h2>All Registered Account Types List<small>AUTOMEX TECHNOLOGIES</small></h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content">
+                    {% include 'partials/_messages.html'%}
+                    <div class="table-responsive">
+                  
+                      <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                          <tr class="headings">
+                            <th>
+                              <input type="checkbox" id="check-all" class="flat">
+                            </th>
+                            <th class="column-title">Branch Name</th>
+                            <th class="column-title">Account Type</th>
+                            <th class="column-title">Minimum Balance</th>
+                            <th class="column-title">Currency</th>
+                            <th class="column-title">Status</th>
+                            <th class="column-title">Registered By</th>
+                            <th class="column-title"> Registered On </th>
+                            <th class="column-title no-link last"><span class="nobr">View</span>
+                            <th class="column-title no-link last"><span class="nobr">Delete</span>
+                            </th>
+                            <th class="bulk-actions" colspan="7">
+                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                            </th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          {% for Acctype in Acctypes %}
+                          <tr class="even pointer">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">{{Acctype.branchName}}</td>
+                            <td class=" ">{{Acctype.accountType}}</td>
+                            <td class=" ">{{Acctype.minimumBalance}}/=<i class="success fa fa-long-arrow-up"></i></td>
+                            <td class=" ">{{Acctype.currencyCode}}</td>
+                            <td class=" ">{{Acctype.accountStatus}}</td>
+                            <td class="a-right a-right ">{{Acctype.regBy}}</td>
+                            <td class=" ">{{Acctype.regDate}}</td>
+                            <td class=" last"><a href="{% url 'edit-account-types' Acctype.id %}">View</a></td>
+                            <td class=" last"><a href="{% url 'delete-accountTypes' Acctype.id %}">Delete</a></td>
+                            </td>
+                          </tr>
+                         
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        <!-- /page content -->
+        <div class="clearfix"></div>
+
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Account Withdraw</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Account Withdraw Form <small>AUTOMEX TECHNOLOGIES</small></h2>
+              
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              <form class="form-horizontal form-label-left form-withdraw input_mask" action="{% url 'update-withdraw' withdraw.withdraw_id %}" method="POST">
+                {% csrf_token %}
+                
+                {% include 'partials/_messages.html'%}
+                
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  <label for="profile id">Withdraw ID</label>
+                    <input type="text" name="withdraw_id" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Account Number" value="{{values.withdraw_id}}">
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  <label for="profile id">Account No</label>
+                    <input type="text" name="accountNo" class="form-control has-feedback-left" id="inputSuccess2" value="{{values.accountNo}}">
+                      
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-8 col-sm-8 col-xs-8 form-group has-feedback">
+                  <label for="profile id">Account Name</label>
+                    <input type="text" name="accountName" class="form-control has-feedback-left" id="inputSuccess2" value="{{values.accountName}}">
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="profile id">Account Type</label>
+                    <input type="text" name="accountType" class="form-control has-feedback-left" id="inputSuccess2" value="{{values.accountType}}" >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="profile id">Member Nin Number</label>
+                    <input type="text" name="ninNumber" class="form-control has-feedback-left" id="inputSuccess2" value="{{values.ninNumber}}" >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="profile id">Member Contact</label>
+                    <input type="tel" name="contact" class="form-control has-feedback-left" id="inputSuccess2" value="{{values.contact}}">
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="profile id">Account Currency</label>
+                    <input type="text" name="accountCurrency" class="form-control has-feedback-left" id="inputSuccess2" value="{{values.accountCurrency}}">
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="profile id">Old Balance</label>
+                    <input type="number" name="oldBalance" class="form-control oldBalance has-feedback-left" id="inputSuccess2" value="{{values.oldBalance}}" >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="profile id">Charges</label>
+                    <input type="number" name="charges" class="form-control charges has-feedback-left" id="inputSuccess2" value="{{values.charges}}" >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="profile id">Withdraw</label>
+                    <input type="number" name="withdrawAmount" class="form-control has-feedback-left withdraw" id="inputSuccess2" value="{{values.withdrawAmount}}" >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label >New Balance</label>
+                    <input type="number" name="newBalance" class="form-control newBalance has-feedback-left" id="inputSuccess2 newBalance" value="{{values.newBalance}}">
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  <label>Withdraw Date</label>
+                    <input type="date" name="withdrawDate" class="form-control has-feedback-left" id="inputSuccess2" value="{{values.withdrawDate | date:'Y-m-d'}}" >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="form-group">
+                  <div class="col-md-4 col-sm-5 col-xs-9 col-md-offset-8">
+                    <button type="button" class="btn btn-primary">Cancel</button>
+                     <button class="btn btn-primary" type="reset">Reset</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+          </div>
+          </div>
+      </div>
+      </div>
+        <div class="clearfix"></div>
+      
+{% endblock %}
+

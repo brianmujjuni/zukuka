@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Add Account Types</h3>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Account Types Form <small>AUTOMEX TECHNOLOGIES</small></h2>
+              
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Click to Add</button>
+
+              <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                      </button>
+                      <h4 class="modal-title" id="myModalLabel">Client Information</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal form-label-left input_mask" action="" method="POST">
+                            {% csrf_token %}
+                            
+                            {% include 'partials/_messages.html'%}
+                            
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                              <label >Branch Name</label>
+                                <select name="branchName" class="form-control has-feedback-left" id="inputSuccess2">
+                                 
+                                    {%for branch in branches %}
+                                    <option>Please Select Branch</option>
+                                    <option value="{{branch.branchName}}">{{branch.branchName}}</option>
+                                    <option value="{{values.branchName}}">{{values.branchName}}</option>
+                                    {% endfor %}
+                                </select>
+                                <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                <label>Account Type</label>
+                                  <input type="text" name="accountType" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Account Type" value="{{values.accountType}}">
+                                  <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                              <label for="profile id">Currency Code</label>
+                                <select name="currencyCode" class="form-control has-feedback-left" id="inputSuccess2">
+                                    {% for currency in currency %}
+                                        <option >{{values.currencyCode}}</option>
+                                        <option>Please Select Currency</option>
+                                        <option >{{currency.currencyCode}}</option>
+                                        
+                                    
+                                    {% endfor %}
+                                    
+                                </select>
+                                <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                <label>Description </label>
+                                  <textarea name="description" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Description Notes" value="{{values.description}}"></textarea>
+                                  <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                <label>Minimum Balance</label>
+                                  <input type="number" name="minimumBalance" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Minimum Balance" value="{{values.minimumBalance}}">
+                                  <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                <label>Account Status</label>
+                                  <select name="accountStatus" class="form-control has-feedback-left" id="inputSuccess2">
+                                      <option value="True">Active</option>
+                                      <option value="False">Dormant</option>
+                                  </select>
+                                  <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                              <div class="col-md-4 col-sm-5 col-xs-9 col-md-offset-8">
+                                <button type="button" class="btn btn-primary">Cancel</button>
+                                 <button class="btn btn-primary" type="reset">Reset</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                              </div>
+                            </div>
+            
+                          </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                      
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+      </div>
+      </div>
+        <div class="clearfix"></div>
+      
+{% endblock %}
+

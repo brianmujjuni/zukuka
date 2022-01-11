@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Register Individual Accounts</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Individual Accounts Form <small>AUTOMEX TECHNOLOGIES</small></h2>
+              
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              <form class="form-horizontal form-label-left input_mask" action="" method="POST">
+                {% csrf_token %}
+                
+                {% include 'partials/_messages.html'%}
+                
+                <div class="col-md-8 col-sm-8 col-xs-8 form-group has-feedback">
+                  <label for="profile id">Account No</label>
+                    <input type="text" name="accountNo" class="form-control has-feedback-left accountNo" id="inputSuccess2" placeholder="Account Number" value="{{values.accountNo}}" readonly>
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="profile id">Date</label>
+                    <input type="date" name="date1" class="form-control has-feedback-left" id="inputSuccess2" value="{{values.date1}}" >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  <label >Account Name</label>
+                    <input type="text" name="accountName" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Account Name" value="{{values.accountName}}">
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-9 col-sm-9 col-xs-9 form-group has-feedback">
+                  <label >Account Type</label>
+                  <select class="form-control has-feedback-left" id="inputSuccess2"name= 'accountType'>
+                    <option value="{{values.accountType}}">{{values.accountType}}</option>
+                    <option >Please Select Account Type</option>
+                    {% for accountType in accountTypes %}
+                      <option value="{{accountType.accountType}}">{{accountType.accountType}}</option>
+                    {% endfor %}
+                  </select>
+                  <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-3 form-group has-feedback">
+                  <label >Currency</label>
+                  <select class="form-control has-feedback-left" id="inputSuccess2"name= 'currency' placeholder="Nin Number" value="{{values.curreny}}">
+                    <option value="{{values.curreny}}">{{values.curreny}}</option>
+                    {% for currency in currencyCode %}
+                      <option value="{{currency.currencyCode}}">{{currency.currencyName}}</option>
+                    {% endfor %}
+                  </select>
+                  <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+
+                <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                  <label for="date">First Name</label>
+                  <input type="text"name="firstName" class="form-control has-feedback-left" id="inputSuccess2" placeholder="First Name" value="{{values.firstName}}">
+                  <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                  <label for="last name">Last Name</label>
+                  <input type="text" name="lastName" class="form-control" id="inputSuccess3" placeholder="Last Name" value="{{values.lastName}}">
+                  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="other Name">Other Name</label>
+                    <input type="text"name="otherName" class="form-control" id="inputSuccess3" placeholder="Other Name" value="{{values.otherName}}">
+                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="gender">Gender</label>
+                  <select name="gender" class="gender form-control has-feedback-left gender" id="inputSuccess3">
+                    <option>{{values.gender}}</option>
+                    <option>Please Select Gender</option>
+                    <option >Male</option>
+                    <option>Female</option>
+                  </select>
+                  <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
+                  
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                    <label for="marital status">Date Of Birth</label>
+                    <input type="date" name="dob" class="form-control has-feedback-left" id="inputSuccess3" value="{{values.dob}}" >
+                    <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
+                    
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                    <label for="nationality">Nationality</label>
+                    <input type="text" name="nationality" class="form-control has-feedback-left" id="inputSuccess3" placeholder="Nationality" value="{{values.nationality}}">
+                    <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
+                    
+                  </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="dob">Religion</label>
+                  <select name="religion" class="form-control has-feedback-left" id="inputSuccess4">
+                    <option >Christian</option>
+                    <option >Muslim</option>
+                    <option >Other</option>
+                    </select>
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="dob">Nin Number</label>
+                  <input type="text" name="ninNumber" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Nin Number">
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="dob">Upload Nin Image</label>
+                  <input type="file" name="ninImage" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Upload Nin">
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="dob">Phone No 1</label>
+                  <input type="text" name="phoneNo1" class="form-control has-feedback-left" id="inputSuccess4">
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="dob">Phone No 2</label>
+                  <input type="text" name="phoneNo2" class="form-control has-feedback-left" id="inputSuccess4">
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="dob">Email Address</label>
+                  <input type="email" name="email" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Email Address">
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="dob">Occupation</label>
+                  <input type="text" name="occupation" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Occupation">
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="dob">Company Name OR Business Name</label>
+                  <input type="text" name="companyName" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Company Name">
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="dob">Next Of Kin Name</label>
+                  <input type="text" name="nextOfKinName" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Next Of Kin Name">
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label >Relationship</label>
+                  <input type="text" name="relationship" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Relationship">
+                  
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="dob">Contact</label>
+                  <input type="text" name="contact" class="form-control has-feedback-left" id="inputSuccess4">
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  <label for="dob">Profile Pic</label>
+                  <input type="file" name="profilePic" class="form-control has-feedback-left" id="inputSuccess4">
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="dob">Account Opening Fees</label>
+                  <input type="number" name="openingFees" class="form-control has-feedback-left" id="inputSuccess4">
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label >Account Status</label>
+                  <select name="accountStatus" class="form-control has-feedback-left" id="inputSuccess4">
+                    <option >Please Select Account Status</option>
+                    <option>Active</option>
+                    <option>Pending</option>
+                    <option>Dormant</option>
+                  </select>
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="form-group">
+                  <div class="col-md-4 col-sm-5 col-xs-9 col-md-offset-8">
+                    <button type="button" class="btn btn-primary">Cancel</button>
+                     <button class="btn btn-primary" type="reset">Reset</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+          </div>
+          </div>
+      </div>
+      </div>
+        <div class="clearfix"></div>
+      
+{% endblock %}
+

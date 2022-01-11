@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Account Withdraw</h3>
+        </div>
+        <div class="title_right">
+          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+            <div class="input-group">
+              <input type="text" id="txtSearch" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Account Withdraw Form <small>AUTOMEX TECHNOLOGIES</small></h2>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              <form class="form-horizontal form-label-left form-withdraw input_mask"name="withdrawForm" action="" method="POST">
+                {% csrf_token %}
+                
+                {% include 'partials/_messages.html'%}
+                
+                
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  <label for="profile id">Withdraw ID</label>
+                    <input type="text" name="withdraw_id" class="withdraw_id form-control has-feedback-left" id="inputSuccess2" placeholder="Account Number" value="{{values.withdraw_id}}" readonly>
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  <label for="profile id">Account No</label>
+                    <input type="text" name="accountNo" class="accountNo form-control has-feedback-left" id="inputSuccess2" value="{{values.accountNo}}">
+
+                    </input>
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-8 col-sm-8 col-xs-8 form-group has-feedback">
+                  <label for="profile id">Account Name</label>
+                    <input type="text" name="accountName" class="accountName form-control has-feedback-left" id="inputSuccess2" value="{{values.accountName}}" readonly>
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="profile id">Account Type</label>
+                    <input type="text" name="accountType" class="accountType form-control has-feedback-left" id="inputSuccess2" value="{{values.accountType}}"readonly >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="profile id">Member Nin Number</label>
+                    <input type="text" name="ninNumber" class="ninNumber form-control has-feedback-left" id="inputSuccess2" value="{{values.ninNumber}}" readonly>
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="profile id">Member Contact</label>
+                    <input type="tel" name="contact" class="contact form-control has-feedback-left" id="inputSuccess2" value="{{values.contact}}"readonly >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+                  <label for="profile id">Account Currency</label>
+                    <input type="text" name="accountCurrency" class="accountCurrency form-control has-feedback-left" id="inputSuccess2" value="{{values.accountCurrency}}" readonly >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="profile id">Old Balance</label>
+                    <input type="number" name="oldBalance" class="oldBalance form-control oldBalance has-feedback-left" id="inputSuccess2" value="{{values.oldBalance}}" readonly>
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="profile id">Charges</label>
+                    <input type="number" name="charges" class="charges form-control charges has-feedback-left" id="inputSuccess2" value="{{values.charges}}" >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="profile id">Withdraw</label>
+                    <input type="number" name="withdrawAmount" class="form-control has-feedback-left withdrawAmount" id="inputSuccess2" value="{{values.withdrawAmount}}" >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                  <label for="profile id">New Balance</label>
+                    <input type="number" name="newBalance" class="form-control has-feedback-left newBalance" id="inputSuccess2" value="{{values.newBalance}}" readonly>
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  <label>Withdraw Date</label>
+                    <input type="date" name="withdrawDate" class="form-control has-feedback-left" id="inputSuccess2" value="{{values.withdrawDate}}" >
+                    <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="form-group">
+                  <div class="col-md-4 col-sm-5 col-xs-9 col-md-offset-8">
+                    
+                     <button class="btn btn-primary" type="reset">Reset</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+          </div>
+          </div>
+      </div>
+      </div>
+        <div class="clearfix"></div>
+       
+      
+{% endblock %}
+

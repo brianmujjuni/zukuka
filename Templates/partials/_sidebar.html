@@ -1,0 +1,91 @@
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+    <div class="menu_section">
+      <h3>General</h3>
+      <ul class="nav side-menu">
+        <li><a><i class="fa fa-plus-circle"></i>Individual Accounts<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="{% url 'accounts'%}">View Registered Accounts</a></li>
+            <li><a href="{% url 'add-accounts' %}">Register New Account</a></li>
+            <li><a href="{% url 'add-standin' %}">Add Account Standin</a></li>
+            <li><a href="{% url 'view-standins' %}">View Account Standin</a></li>
+            
+          </ul>
+        </li>
+
+        <li><a><i class="fa fa-group"></i>Group Management<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="#">View Group Accounts</a></li>
+            <li><a href="#">Add Group Accounts</a></li>
+            
+          </ul>
+        </li>
+
+        <li><a><i class="fa fa-institution"></i>Company Management<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="#">View Company Accounts</a></li>
+            <li><a href="#">Add Company Accounts</a></li>
+          </ul>
+        </li>
+
+        <li><a><i class="fa fa-credit-card"></i>All Members Accounts<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="{% url 'members'%}">View Active Members</a></li>
+            <li><a href="{% url 'view-pending-accounts' %}">View Pending Members</a></li>
+            <li><a href="{% url 'view-dormant-accounts' %}">View Dormant Members</a></li>
+          </ul>
+        </li>
+        <li><a><i class="fa fa-sort-amount-asc"></i>Withdraw Management <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="{% url 'withdraws' %}">View Account Withdraws</a></li>
+            <li><a href="{% url 'add-withdraws' %}">Add Account Withdraw</a></li>
+          </ul>
+        </li>
+        <li><a><i class="fa fa-sort-amount-desc"></i>Deposit Management<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="{%url 'deposits' %}">View Account Deposits</a></li>
+            <li><a href="{% url 'add-deposits' %}">Add Account Deposits</a></li>
+          </ul>
+        </li>
+        <li><a><i class="fa fa-random"></i>Account Charges <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="{% url 'accountCharges'%}">View Account Charges </a></li>
+            <li><a href="{% url 'add-accountCharges'%}">Add Account Charges</a></li>
+           
+          </ul>
+        </li>
+        <li><a><i class="fa fa-qrcode"></i>Account Transaction<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="{% url  'transactions'%}">View Transactions</a></li>
+            
+          </ul>
+        </li>
+
+        <li><a><i class="fa fa-share-alt"></i>Branches Management <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="{% url 'branches'%}">View Registered Branches</a></li>
+            <li><a href="{% url 'add-branch'%}">Add New Branches </a></li>
+            <li><a href="{% url 'view-branch-currencies'%}">View Branch Currencies </a></li>
+            <li><a href="{% url 'add-branch-currencies'%}">Add Branch Currencies </a></li>
+            
+          </ul>
+        </li>
+        <li><a><i class="fa fa-btc"></i>Currency Management <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="{% url 'view-curreny'%}">View Registered Currency </a></li>
+            <li><a href="{% url 'add-currency'%}">Add New Currency </a></li>
+          </ul>
+        </li>
+        <li><a><i class="fa fa-tags"></i>Account Types Mgt <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="{% url 'account-types'%}">View Registered Acc Types </a></li>
+            <li><a href="{% url 'add-account-types'%}">Add Account Type </a></li>
+            
+          </ul>
+        </li>
+        
+        
+      </ul>
+    </div>
+    
+
+  </div>

@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+
+{% block content %} 
+        
+        <!-- page content -->
+        
+          <div class=""></div>
+            <div class="page-title">
+              <div class="title_left">
+                <h3>All Registered Members</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" id ="searchField" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_title">
+                  
+                  <div class="clearfix"></div>
+                </div>
+                
+                  <div class="x_title">
+                    <h2>All Registered Members List<small>AUTOMEX TECHNOLOGIES</small></h2>
+                    <div class="title_right">
+                      <div class="col-md-4 col-sm-4 col-xs-12 form-group pull-right ">
+                        <div class="input-group">
+                          <a href="{% url 'members_active'%}" class="btn btn-success sm-4" >EXCELL</a>
+                          <a href="{% url 'members_active_csv' %}" class="btn btn-success sm-4" >CSV</a>
+                          <a href="" class="btn btn-success sm-4" >PDF</a>
+                          <a href="" class="btn btn-success sm-4" >PRINT</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content">
+                    <!--Main Table Out PUT-->
+                      <div class="app-table">
+
+
+                        {% include 'partials/_messages.html'%}
+                        <div class="table-responsive">
+                      
+                          <table class="table table-striped jambo_table bulk_action">
+                            <thead>
+                              <tr class="headings">
+                                <th>
+                                  <input type="checkbox" id="check-all" class="flat">
+                                </th>
+                                <th class="column-title">Account No</th>
+                                <th class="column-title">Account Name</th>
+                                <th class="column-title">Account Type</th>
+                                <th class="column-title">Account Currency</th>
+                                <th class="column-title">First Name</th>
+                                <th class="column-title">Last Name</th>
+                                <th class="column-title"> Balance </th>
+                                <th class="column-title"> Date </th>
+                                <th class="column-title no-link last"><span class="nobr">View</span>
+                                <th class="column-title no-link last"><span class="nobr">Delete</span>
+                                </th>
+                                <th class="bulk-actions" colspan="7">
+                                  <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                </th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                            {% for member in members %}
+                              <tr class="even pointer">
+                                <td class="a-center ">
+                                  <input type="checkbox" class="flat" name="table_records">
+                                </td>
+                                <td class=" ">{{member.accountNo}}</td>
+                                <td class=" ">{{member.accountName}}</td>
+                                <td class=" ">{{member.accountType}}</td>
+                                <td class=" ">{{member.accountCurrency}}</td>
+                                <td class=" ">{{member.firstName}}</td>
+                                <td class="a-right a-right ">{{member.lastName}}</td>
+                                <td class=" ">{{member.balance | intcomma }}/=<i class="success fa fa-long-arrow-up"></i></td>
+                                <td class=" ">{{member.regDate | timesince}}</td>
+                                <td class=" last"><a href="{% url 'update-status' member.accountNo %}">View</a>
+                                <td class=" last"><a href="{% url 'delete-member' member.accountNo %}">Delete</a>
+                                </td>
+                              </tr>
+                            {% endfor %}
+                            </tbody>
+                          </table>
+                        </div>
+
+                      </div>
+                      <p class="no-results" style="display: none;">No results </p>
+                      <!--table to display searched results-->
+                      <div class="table-output">
+                        <table class="table table-striped jambo_table bulk_action">
+                          <thead>
+                            <tr class="headings">
+                              <th>
+                                <input type="checkbox" id="check-all" class="flat">
+                              </th>
+                                <th class="column-title">Account No</th>
+                                <th class="column-title">Account Name</th>
+                                <th class="column-title">Account Type</th>
+                                <th class="column-title">Account Currency</th>
+                                <th class="column-title">First Name</th>
+                                <th class="column-title">Last Name</th>
+                                <th class="column-title"> Balance </th>
+                                <th class="column-title"> Date </th>
+                              <th class="column-title no-link last"><span class="nobr">View</span>
+                              <th class="column-title no-link last"><span class="nobr">Delete</span>
+                              </th>
+                              <th class="bulk-actions" colspan="7">
+                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody class="table-body">
+                          
+                          </tbody>
+                        </table>
+                      </div>
+                      <!--END OF TABLE OUT PUT-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        <!-- /page content -->
+        <div class="clearfix"></div>
+        <script src="{% static '/js/searchActiveMembers.js' %}"></script>
+
+{% endblock %}

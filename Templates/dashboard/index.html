@@ -1,0 +1,288 @@
+{% extends 'base.html' %}
+{% load humanize  %}
+{% load static %}
+
+{% block content %}
+
+    <!-- top tiles -->
+   
+      <div class="">
+        <div class="row top_tiles">
+          <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+              <div class="icon"><i class="fa fa-bank"></i></div>
+              <div class="count">{{account_count}}</div>
+              <h3>New Accounts</h3>
+              <p>New Approved Accounts</p>
+            </div>
+          </div>
+          <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+              <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
+              <div class="count">{{withdraw_count | intcomma }}</div>
+              <h3>New Withdraws</h3>
+              <p>Successful Accounts Withdraws</p>
+            </div>
+          </div>
+          <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+              
+              <div class="count">{{deposits_count | intcomma}}</div>
+              <div class="icon"><i class="fa fa-sort-amount-asc"></i></div>
+              <h3>New Deposits</h3>
+              <p>Successful Accounts Deposits</p>
+            </div>
+          </div>
+          <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+              <div class="icon"><i class="fa fa-check-square-o"></i></div>
+              <div class="count">{{pendingCount}}</div>
+              <h3>Dormant Accounts</h3>
+              <p>Customer Inactive Accounts</p>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="x_panel">
+              <div class="x_title">
+                {% include 'partials/_messages.html'%}
+                <h2>Transaction Summary <small>Weekly progress</small></h2>
+                <div class="filter">
+                  <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                    <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div class="col-md-9 col-sm-12 col-xs-12">
+                  <div class="demo-container" style="height:280px">
+                    <div id="chart_plot_02" class="demo-placeholder"></div>
+                  </div>
+                  <div class="tiles">
+                    <div class="col-md-4 tile">
+                      <span>Total Sessions</span>
+                      <h2>{{totalunit}}/=</h2>
+                      <span class="sparkline11 graph" style="height: 160px;">
+                           <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                      </span>
+                    </div>
+                    <div class="col-md-4 tile">
+                      <span>Total Revenue</span>
+                      <h2>{{totalrevenueCount}}/=</h2>
+                      <span class="sparkline22 graph" style="height: 160px;">
+                            <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                      </span>
+                    </div>
+                    <div class="col-md-4 tile">
+                      <span>Total Balances</span>
+                      <h2>{{accountBalance_count}}/=</h2>
+                      <span class="sparkline11 graph" style="height: 160px;">
+                             <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                  <div>
+                    <div class="x_title">
+                      <h2>High Ranked Accounts</h2>
+                      
+                      <div class="clearfix"></div>
+                    </div>
+                    <ul class="list-unstyled top_profiles scroll-view">
+                      {% for hugeBalances in hugeBalance%}
+                        
+                        <li class="media event">
+                          <a class="pull-left border-green profile_thumb">
+                            <i class="fa fa-user green"></i>
+                          </a>
+                          <div class="media-body">
+                            <a class="title" href="#">{{hugeBalances.accountName}}</a>
+                            <p><strong>{{hugeBalances.balance | intcomma }}</strong> {{hugeBalances.accountType}}</p>
+                            <p> <small>{{hugeBalances.accountNo }}</small>
+                            </p>
+                          </div>
+                        </li>
+                        
+                        
+                      {% endfor %}
+                      
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Weekly Summary <small>Activity shares</small></h2>
+                
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+
+                <div class="row" style="border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; margin-bottom: 5px;">
+                  <div class="col-md-7" style="overflow:hidden;">
+                    <span class="sparkline_one" style="height: 160px; padding: 10px 25px;">
+                                  <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                              </span>
+                    <h4 style="margin:18px">Weekly sales progress</h4>
+                  </div>
+
+                  <div class="col-md-5">
+                    <div class="row" style="text-align: center;">
+                      <div class="col-md-4">
+                        <canvas class="canvasDoughnut" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                        <h4 style="margin:0">Bounce Rates</h4>
+                      </div>
+                      <div class="col-md-4">
+                        <canvas class="canvasDoughnut" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                        <h4 style="margin:0">New Traffic</h4>
+                      </div>
+                      <div class="col-md-4">
+                        <canvas class="canvasDoughnut" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                        <h4 style="margin:0">Device Share</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Pending Accounts <small>Total No : {{ pendingCount}}</small></h2>
+                
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                {% for pendingAccount in pendingAccounts %}
+                <article class="media event">
+                  <a class="pull-left date">
+                    <p class="month">{{pendingAccount.regDate.month}}</p>
+                    <p class="day">{{pendingAccount.regDate.day}}</p>
+                  </a>
+                  <div class="media-body">
+                    <a class="title" href="{% url 'update-status' pendingAccount.accountNo %}">{{ pendingAccount.accountNo }}</a>
+                    <p>Acc Name: {{ pendingAccount.accountName}} </p>
+                    <p>Acc Type: {{ pendingAccount.accountType}} </p>
+                  </div>
+                </article>
+                {% endfor %}
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Dormant Accounts <small>Total No: {{dormantCount}}</small></h2>
+                
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                {% for dormantAccount in dormantAccounts%}
+                <article class="media event">
+                  <a class="pull-left date">
+                    <p class="month">April</p>
+                    <p class="day">23</p>
+                  </a>
+                  <div class="media-body">
+                    <a class="title" href="{% url 'update-status' dormantAccount.accountNo %}">{{dormantAccount.accountNo}}</a>
+                    <p>Acc Name : {{dormantAccount.accountName}}</p>
+                    <p>Acc Type : {{dormantAccount.accountType}}</p>
+                  </div>
+                </article>
+                {% endfor %}
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>New Loan Requests<small>Total Amount</small></h2>
+                
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <article class="media event">
+                  <a class="pull-left date">
+                    <p class="month">April</p>
+                    <p class="day">23</p>
+                  </a>
+                  <div class="media-body">
+                    <a class="title" href="#">Item One Title</a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </article>
+                <article class="media event">
+                  <a class="pull-left date">
+                    <p class="month">April</p>
+                    <p class="day">23</p>
+                  </a>
+                  <div class="media-body">
+                    <a class="title" href="#">Item Two Title</a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </article>
+                <article class="media event">
+                  <a class="pull-left date">
+                    <p class="month">April</p>
+                    <p class="day">23</p>
+                  </a>
+                  <div class="media-body">
+                    <a class="title" href="#">Item Two Title</a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </article>
+                <article class="media event">
+                  <a class="pull-left date">
+                    <p class="month">April</p>
+                    <p class="day">23</p>
+                  </a>
+                  <div class="media-body">
+                    <a class="title" href="#">Item Two Title</a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </article>
+                <article class="media event">
+                  <a class="pull-left date">
+                    <p class="month">April</p>
+                    <p class="day">23</p>
+                  </a>
+                  <div class="media-body">
+                    <a class="title" href="#">Item Three Title</a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+{% endblock %}

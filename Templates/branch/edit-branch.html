@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Update Branches</h3>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Branches Form <small>AUTOMEX TECHNOLOGIES</small></h2>
+              
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Click to Update</button>
+
+              <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                      </button>
+                      <h4 class="modal-title" id="myModalLabel">Client Information</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal form-label-left input_mask" action="{% url 'edit-branch'  branch.id %}" method="POST">
+                            {% csrf_token %}
+                            
+                            {% include 'partials/_messages.html'%}
+                            
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                              <label >Branch Name</label>
+                                <input type="text" name="branchName" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Branch Name" value="{{values.branchName}}">
+                                <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="col-md-6 col-sm-16 col-xs-6 form-group has-feedback">
+                              <label for="profile id">Phone No1</label>
+                                <input type="tel" name="phoneNo1" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Phone Number 1" value="{{values.phoneNo1}}">
+                                <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                                <label>Phone No2</label>
+                                  <input type="tel" name="phoneNo2" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Phone Number 2" value="{{values.phoneNo2}}">
+                                  <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                <label>Email Address</label>
+                                  <input type="email" name="email" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Email Address" value="{{values.email}}">
+                                  <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                                <label>Country</label>
+                                  <input type="text" name="country" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Country" value="{{values.country}}">
+                                  <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+                                <label>Location</label>
+                                  <input type="text" name="location" class="form-control has-feedback-left" id="inputSuccess2" placeholder="location" value="{{values.location}}">
+                                  <span class="fa fa-ticket form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+            
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                              <div class="col-md-4 col-sm-5 col-xs-9 col-md-offset-8">
+                                <button type="button" class="btn btn-primary">Cancel</button>
+                                 <button class="btn btn-primary" type="reset">Reset</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                              </div>
+                            </div>
+            
+                          </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                      
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+      </div>
+      </div>
+        <div class="clearfix"></div>
+      
+{% endblock %}
+
