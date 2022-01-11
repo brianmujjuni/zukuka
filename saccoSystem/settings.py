@@ -29,8 +29,8 @@ SECRET_KEY = 'django-insecure-%5&wcvzud)1o#(r$2-*^ho23f9mhqb8icb@7+qi4-d@78%3b@b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['34.135.68.51','0.0.0.0']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['34.135.68.51','0.0.0.0']
+#ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -91,11 +91,22 @@ WSGI_APPLICATION = 'saccoSystem.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+   # 'default': {
+     #    'ENGINE': 'django.db.backends.postgresql',
+    #    'NAME': 'sacco',
+    #    'USER': 'postgres',
+    #    'PASSWORD': '12345',
+    #    'HOST': 'localhost',
+        
+    #}
+#}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sacco',
-        'USER': 'postgres',
+        'NAME': 'zukuka',
+        'USER': 'brian',
         'PASSWORD': '12345',
         'HOST': 'localhost',
         
